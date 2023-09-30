@@ -45,7 +45,7 @@ class Notify(commands.Cog):
     def cog_unload(self):
         self.notify.cancel()
 
-    @tasks.loop(seconds=30)
+    @tasks.loop(hours=1)
     async def notify(self):
         channel = client.get_channel(ANNOUNCEMENT_CHANNEL_ID)
         notify_Day = current_Time.weekday()  
