@@ -14,15 +14,14 @@ Returns a greeting.
 #### ```/ping```
 Returns a bit of flavoured text with the current ping in MS.
 
-#### Notify
-Checks every hour if it is "notify time".
-Once its notify time, the bot sends out a message pinging a role, asking them for their availability for the coming weekend.
-Is automatically started once the bot goes live.
+### Notify
+Checks every minute if its a pre-determined time.
+If its the pre-determined time, it sends a message to a channel with some reactions to act as a poll.
 
-You can specify the date and time in the ***.ENV*** file!
+In my case, it's setup to run every monday, at 19:30 / 7:30PM.
 
 ## Running
 
-Memorius can ran locally aslong as you have python3.10 and the requirements as listen in requirements.txt <br>
+Memorius can run locally aslong as you have python3.10 and the requirements as listen in requirements.txt <br>
 
 Memorius is also Dockerized! just pull the repository, configure a **.ENV** and run ```docker compose up -d``` !
