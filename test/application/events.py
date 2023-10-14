@@ -2,14 +2,14 @@ import random
 
 def get_xenos():
     #Return all xenos in an array
-    data_file_path = '../data/xeno_races.txt'
+    data_file_path = 'test/data/xeno_races.txt'
     with open(data_file_path, 'r') as file:
         race_list = [line.strip() for line in file.readlines()]
     return race_list
 
 def get_xeno_purging_quotes():
     #Return all quotes in an array
-    data_file_path = '../data/xeno_purging_quotes.txt'
+    data_file_path = 'test/data/xeno_purging_quotes.txt'
     with open(data_file_path, 'r') as file:
         quote_list = [line.strip() for line in file.readlines()]
     return quote_list
@@ -28,6 +28,6 @@ def setup_application_events(client):
             return
 
         if any(word in xenos for word in words):
-            purging_quotes = get_xeno_purging_quotes
+            purging_quotes = get_xeno_purging_quotes()
             random_number = random.randint(0,99)
             await message.channel.send(purging_quotes[random_number])
