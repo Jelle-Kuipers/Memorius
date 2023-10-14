@@ -5,6 +5,7 @@ from application.events import setup_application_events
 import logging
 import os
 from dotenv import load_dotenv
+from cogs.notify_cog import Notify
 
 #load ENV
 load_dotenv()
@@ -24,6 +25,7 @@ bot = app_commands.CommandTree(client)
 @client.event
 async def on_ready():
     print(f'Awakening machine spirit of: {client.user}')
+    Notify(client) #Load Cog (THIS IS NOT HOW YOU LOAD COGS BUT I JUST CANT GET IT TO WORK AS A NORMAL COG!)
     setup_application_events(client) #Enables event based actions
     await setup_application_commands(bot, client) #Sets up commands to be synced
     print(f'Machine spirit awakened, praise the Omnissiah!')
