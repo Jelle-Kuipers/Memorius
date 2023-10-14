@@ -2,14 +2,14 @@ import random
 
 def get_xenos():
     #Return all xenos in an array
-    data_file_path = 'test/data/xeno_races.txt'
+    data_file_path = 'app/data/xeno_races.txt'
     with open(data_file_path, 'r') as file:
         race_list = [line.strip() for line in file.readlines()]
     return race_list
 
 def get_xeno_purging_quotes():
     #Return all quotes in an array
-    data_file_path = 'test/data/xeno_purging_quotes.txt'
+    data_file_path = 'app/data/xeno_purging_quotes.txt'
     with open(data_file_path, 'r') as file:
         quote_list = [line.strip() for line in file.readlines()]
     return quote_list

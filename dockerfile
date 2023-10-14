@@ -11,4 +11,4 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Run your bot script
-CMD ["python", "app/memorius.py"]
+CMD ["python", "app/main.py"]
