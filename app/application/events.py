@@ -22,7 +22,7 @@ def setup_application_events(client):
     async def on_message(message):
          #if a xenos race is mentioned in a message, send a xenos-purging quote 
         xenos = get_xenos()
-        punctuation_chars = '.,!?;:()[]{}"'
+        punctuation_chars = '`\/\'.,!?;:()[]{}*~_"|#@$%^&'
         words = [word.strip(punctuation_chars) for word in message.content.lower().split()]
         if message.author == client.user:
             return
