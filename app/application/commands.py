@@ -18,8 +18,4 @@ async def setup_application_commands(bot, client):
         await interaction.response.send_message("Greetings master")
    
     await bot.sync(guild=discord.Object(id=GUILD_ID))
-    if GUILD_ID == 963747264990437386: #TODO: Remove debug code, only meant to know what server I am deploying to :)
-        guild = 'Warhammer Server'
-    else:
-        guild = 'Testing Environment'
-    print(f'Module: Application_Commands, has been awoken in [{guild}].')
+    print(f'Module: Application_Commands, has been awoken.')
