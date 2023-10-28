@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 from dotenv import load_dotenv
 import os
 import datetime
+import pytz
 
 load_dotenv()
 BOT_TOKEN = os.getenv('BOT_TOKEN')
@@ -22,20 +23,20 @@ class Notify(commands.Cog):
     def cog_unload(self):
         self.notify.cancel()
 
-    @tasks.loop(minutes=1)
+    @tasks.loop(seconds=61)
     async def notify(self):
-        current_Time = datetime.datetime.now()
+        current_Time = datetime.datetime.now(pytz.timezone('Europe/Amsterdam'))
         channel = self.client.get_channel(ANNOUNCEMENT_CHANNEL_ID)
         notify_Day = current_Time.weekday()  
         if notify_Day == NOTIFY_DAY:
             notify_Time = current_Time.strftime('%H:%M')
 
             next_saturday = current_Time + datetime.timedelta(days=5)
-            next_saturday = next_saturday.replace(hour=11, minute=30)
+            next_saturday = next_saturday.replace(hour=11, minute=30, tzinfo=pytz.timezone('Europe/Amsterdam'))
             formatted_next_saturday = next_saturday.strftime("%d-%m-%Y at %H:%M")
             
             next_sunday = current_Time + datetime.timedelta(days=6)
-            next_sunday = next_sunday.replace(hour=11, minute=30)
+            next_sunday = next_sunday.replace(hour=11, minute=30, tzinfo=pytz.timezone('Europe/Amsterdam'))
             formatted_next_sunday = next_sunday.strftime("%d-%m-%Y at %H:%M")
             
             if notify_Time == f'{NOTIFY_HOUR:02d}:{NOTIFY_MINUTE:02d}':
