@@ -1,3 +1,6 @@
+# Project has been abandoned
+Due to discords new age verification process, I have stopped supporting or using the platform and will no longer be working on this project.
+
 # Memorius - About
 Ludicarum Bellorum Memorius is a warhammer 40,000 themed discord bot written in Python3 using the [discord.py](https://discordpy.readthedocs.io/en/stable/index.html) library.
 
